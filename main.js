@@ -1,9 +1,9 @@
 
-
+//to fetch the random quote api
 async function quoteGenerator(){
   try{
-      const quoteText =  await fetch("https://api.quotable.io/random");
-      const data =  await quoteText.json();
+      const response =  await fetch("https://api.quotable.io/random");
+      const data =  await response.json();
       return data.content;
   }catch (error){
       console.log("Failed to fetch quotes because of " + error);
@@ -16,6 +16,7 @@ async function showQuote(){
     const quoteData = await quoteGenerator();
     return showQuoteText.textContent = quoteData;
 }
+
 
 //To share post to twitter
 function twitterPost(quote){
